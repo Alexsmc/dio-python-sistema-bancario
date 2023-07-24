@@ -20,6 +20,7 @@ while True:
         if deposito > 0:
             saldo += deposito
             print(f'Novo Saldo: RS{saldo:.2f}')
+            extrato += f'Deposito: R$ {deposito:.2f}\n'
         else:
             print('deposito não realizado!')
             print(f'Saldo atual: RS{saldo:.2f}')
@@ -40,10 +41,14 @@ while True:
                 print(f'Saque no valor de R${saque}, foi realizado com sucesso')
                 print(f'Saldo atual: RS{saldo:.2f}')
                 limite_diario -= 1
+                extrato += f'Saque: R$ {saque:.2f}\n'
             else:
                 print('Saque não realizado, por favor digite um valor válido')
     elif opcao == '3':
-        print('Extrato')
+        print('\n=============Extrato==============')
+        print('Não foram realizadas movimentações.' if not extrato else extrato)
+        print(f'\nSaldo: R$ {saldo:.2f}')
+        print('======================================')
     elif opcao == '0':
         break
     else:
